@@ -6,7 +6,7 @@ public class character : MonoBehaviour
 {
     private CharacterController characterController;
 
-    public float speed = 5f;
+    public float speed = 50f;
     public float jumpForce = 10f; // Increase the jump force for a higher jump.
     public float jumpDuration = 0.5f; // Adjust the jump duration as needed.
     private Vector3 movement;
@@ -49,17 +49,17 @@ public class character : MonoBehaviour
             }
         }
 
-        // Apply gravity when the character is not grounded.
+        // make sure doesnt float in the air.
         verticalVelocity += Physics.gravity.y * Time.deltaTime;
 
-        // Check if the character is in the air due to jumping.
+        // Check if the capsule is in the air due to jumping.
         if (isJumping)
         {
             movement.y = verticalVelocity;
         }
         else
         {
-            // Character is not jumping, so apply gravity.
+            // capsule is not jumping, so apply gravity.
             movement.y = verticalVelocity;
         }
 
